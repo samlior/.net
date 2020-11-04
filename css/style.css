@@ -8,13 +8,7 @@ body {
     color:whitesmoke;
 }
 
-.contribute {
-    border-style: dotted;
-    padding: 10px;
-    color:whitesmoke;
-}
-
-.goerlicon {
+.blogs {
     border-style: dotted;
     padding: 10px;
     color:whitesmoke;
@@ -32,14 +26,6 @@ h1 {
     font-weight: 400;
     text-align: center;
     color: paleturquoise;
-}
-
-h1.heroText {
-    -webkit-animation: colorchange 1s infinite alternate;
-	-moz-animation: color-change 1s infinite alternate;
-	-ms-animation: color-change 1s infinite alternate;
-	-o-animation: color-change 1s infinite alternate;
-	animation: color-change 1s infinite alternate;
 }
 
 @-webkit-keyframes color-change {
@@ -130,13 +116,6 @@ p {
     font-weight: 400;
     color: white;
 }
-
-
-
-
---------------------------------
-
---------------------------------
 
 /* unvisited link */
 a:link {
