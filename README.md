@@ -1,4 +1,4 @@
-# .net
-the amazing goerli.net website
+# Samlr Blog
+Legendary blog made by Samlior
 
-https://goerli.net/
+https://samlr.xyz

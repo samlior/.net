@@ -28,6 +28,17 @@ h1 {
     color: paleturquoise;
 }
 
+#heroText {
+    font-weight: 900;
+    text-align: center;
+    
+    -webkit-animation: colorchange 1s infinite alternate;
+    -moz-animation: color-change 1s infinite alternate;
+    -ms-animation: color-change 1s infinite alternate;
+    -o-animation: color-change 1s infinite alternate;
+    animation: color-change 1s infinite alternate;
+}
+
 @-webkit-keyframes color-change {
     0% { color: red; }
     50% { color: blue; }
@@ -53,7 +64,6 @@ h1 {
     50% { color: blue; }
     100% { color: greenyellow; }
 }
-
 
 h4 {
     font-family: 'Source Code Pro', monospace;
@@ -119,7 +129,7 @@ p {
 
 /* unvisited link */
 a:link {
-    color: black;
+    color: paleturquoise;
   }
 
 /* visited link */
