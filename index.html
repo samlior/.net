@@ -95,7 +95,7 @@
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                 </h5>
-                <h5 class="common-paragraph">Here is the legendary blog made by Samlr.</h5>
+                <h5 class="common-paragraph">Here is the legendary blog made by Samlior.</h5>
             </div>
 
     </section>
@@ -115,7 +115,7 @@
             _/'  /~                            ,--,____,-----|,_,-,_       `\
         _,/'    '              ,-'      _      `~'------'~~~~~--    `~~~~\  |
      ,-'             /~       '    ,-~~~         _,       ,-=~~~~~~~~~~~~'| |
-     ~              .'             '         ,   '      /~`                |/
+     ~              .'             '         ,   '      /~`               |/
                                       /' ,/'       _/~'
                        ,       /    /`          _/~ 
             /~        /      /`               /' 
@@ -124,7 +124,35 @@
                           `       /'     | 
                                         '
                 </h5>
+                <div id="blogs">
+
+                </div>
             </div>
     </section>
 </body>
+<script type="text/javascript">
+    var httpRequest = new XMLHttpRequest()
+    httpRequest.open('GET', 'https://raw.githubusercontent.com/samlior/blog/master/info.json', true)
+    httpRequest.send()
+    httpRequest.onreadystatechange = () => {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            try {
+                var json = JSON.parse(httpRequest.responseText)
+                var html
+                for (let topic of json.topicsList) {
+                    html = html === undefined ? `<p>${topic.topic}</p>` : html + `<p>${topic.topic}</p>`
+                    for (let blog of topic.blogList) {
+                        html += `<a target="_blank" href="https://github.com/samlior/blog/blob/master/blog/${blog.path}">${blog.timestamp} ${blog.title} - ${blog.description}</a>`
+                    }
+                }
+                if (html !== undefined) {
+                    document.getElementById('blogs').innerHTML = html
+                }
+            }
+            catch (err) {
+                console.error('catch err: ', err)
+            }
+        }
+    };
+</script>
 </html>
