@@ -148,6 +148,13 @@ p {
   color: pink;
 }
 
+#funstuffNav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: pink;
+}
+
 .common-paragraph {
   white-space: normal;
 }
@@ -161,6 +168,14 @@ p {
   font-size: 15px;
   font-weight: 400;
   color: white;
+}
+
+.funstuff-item {
+  font-family: "Source Code Pro", monospace;
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  float: left;
 }
 
 /* unvisited link */
