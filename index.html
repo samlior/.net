@@ -135,15 +135,9 @@
                 :;  `--' :;   :;
      
                 </h5>
-                <ul id="funstuffNav">
-                    <li class="funstuff-item"><h5 class="common-paragraph">|&nbsp;<a target="_blank" href="https://etherpad.samlr.xyz">etherpad.samlr.xyz</a>&nbsp;etherpad-lite协作工具(不定期删库)&nbsp;</h5></li>
-                    <li class="funstuff-item"><h5 class="common-paragraph">|&nbsp;<a target="_blank" href="https://www.asciiart.eu">asciiart.eu</a>&nbsp;ascii艺术网站&nbsp;</h5></li>
-                    <li class="funstuff-item"><h5 class="common-paragraph">|&nbsp;<a target="_blank" href="http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20">patorjk.com</a>&nbsp;ascii艺术字生成网站&nbsp;</h5></li>
-                    <li class="funstuff-item"><h5 class="common-paragraph">|&nbsp;<a target="_blank" href="http://web.archive.org">web.archive.org</a>&nbsp;保存其他网站快照的网站(可以回溯到很久以前哦)&nbsp;</h5></li>
-                    <li class="funstuff-item"><h5 class="common-paragraph">|&nbsp;<a target="_blank" href="https://trow.cc/board">trow.cc</a>&nbsp;有意思的小众论坛&nbsp;</h5></li>
-                    <li class="funstuff-item"><h5 class="common-paragraph">|&nbsp;<a target="_blank" href="https://2dwillneverdie.com">2dwillneverdie.com</a>&nbsp;帅气的2d游戏素材网站&nbsp;</h5></li>
-                    <li class="funstuff-item"><h5 class="common-paragraph">|&nbsp;<a target="_blank" href="http://emn178.github.io/online-tools">emn178.github.io</a>&nbsp;诸多密码学算法在线计算(包括keccak256)&nbsp;|</h5></li>
-                </ul>
+                <div id="funstuff">
+
+                </div>
             </div>
 
     </section>
@@ -180,7 +174,6 @@
 </body>
 <script type="text/javascript">
     var httpRequest = new XMLHttpRequest()
-    // httpRequest.open('GET', 'https://raw.githubusercontent.com/samlior/blog/master/info.json', true)
     httpRequest.open('GET', 'info.json', true)
     httpRequest.send()
     httpRequest.onreadystatechange = () => {
@@ -188,6 +181,19 @@
             try {
                 var json = JSON.parse(httpRequest.responseText)
                 var html
+                for (let funstuff of json.funstuffList) {
+                    html = html === undefined ? `<p>${funstuff.category}</p>` : html + `<p>${funstuff.category}</p>`
+                    html += '<ul id="funstuffNav">'
+                    for (let i = 0; i < funstuff.hrefList.length; i++) {
+                        let href = funstuff.hrefList[i]
+                        html += `<li class="funstuff-item"><h5 class="common-paragraph">|&nbsp;<a target="_blank" href="${href.href}">${href.hrefText}</a>&nbsp;${href.description}&nbsp;${i === funstuff.hrefList.length - 1 ? '|' : ''}</h5></li>`
+                    }
+                    html += '</ul>'
+                }
+                if (html !== undefined) {
+                    document.getElementById('funstuff').innerHTML = html
+                    html = undefined
+                }
                 for (let topic of json.topicsList) {
                     html = html === undefined ? `<p>${topic.topic}</p>` : html + `<p>${topic.topic}</p>`
                     for (let blog of topic.blogList) {
