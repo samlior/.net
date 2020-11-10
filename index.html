@@ -188,7 +188,7 @@
                         let href = funstuff.hrefList[i]
                         html += `<li class="funstuff-item"><h5 class="common-paragraph">|&nbsp;<a target="_blank" href="${href.href}">${href.hrefText}</a>&nbsp;${href.description}&nbsp;${i === funstuff.hrefList.length - 1 ? '|' : ''}</h5></li>`
                     }
-                    html += '</ul>'
+                    html += '</ul><div style="clear:both"></div>'
                 }
                 if (html !== undefined) {
                     document.getElementById('funstuff').innerHTML = html
