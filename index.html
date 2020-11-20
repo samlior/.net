@@ -196,8 +196,12 @@
                 }
                 for (let topic of json.topicsList) {
                     html = html === undefined ? `<p>${topic.topic}</p>` : html + `<p>${topic.topic}</p>`
-                    for (let blog of topic.blogList) {
+                    for (let i = 0; i < topic.blogList.length; i++) {
+                        let blog = topic.blogList[i]
                         html += `<a target="_blank" href="https://github.com/samlior/blog/blob/master/blog/${blog.path}">${blog.timestamp} ${blog.title} - ${blog.description}</a>`
+                        if (i !== topic.blogList.length - 1) {
+                            html += '<br><br>'
+                        }
                     }
                 }
                 if (html !== undefined) {
