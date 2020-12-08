@@ -56,7 +56,7 @@
             "topic": "Technology sharing 技术分享",
             "blogList": [
                 {
-                    "timestamp": "2020-12-8",
+                    "timestamp": "2020-12-08",
                     "title": "ethereumjs-client",
                     "path": "ethereumjs-client.md",
                     "description": "浅析ethereumjs-client工作原理"
